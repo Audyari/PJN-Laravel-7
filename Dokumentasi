@@ -3,3 +3,17 @@
 2. php artisan serve
 
 3. php -S localhost:8000
+
+4. php artisan make:test ContohTest
+
+5. php artisan make:test ContohTest --unit
+
+6. php artisan test
+
+7.  // untuk menyimpan perubahan yang sudah diperbarui
+    php artisan config:cache
+
+    // untuk menghapus cache
+    php artisan config:clear
+
+8. 
