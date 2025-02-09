@@ -27,4 +27,13 @@
 
 11. // untuk memasukkan view ke cache
     php artisan view:cache
+
+12. // untuk menghapus cache view
     php artisan view:clear
+
+13. // untuk menjalankan aplikasi di mode production
+    npm install
+    npm run dev
+    npm run prod
+
+14. 

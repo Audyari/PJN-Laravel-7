@@ -40,3 +40,11 @@ Route::get("/hello", function () {
 Route::get("/hello-world", function () {
     return view("hello.world", ['name'=> 'Audyari']);
 });
+
+Route::get('/profile/{name}', function ($name) {
+    return view('profile', ['name' => $name]);
+});
+
+Route::get('/profile/{name}/age/{age}', function ($name, $age) {
+    return view('profile', ['name'=> $name,'age'=> $age]);
+});

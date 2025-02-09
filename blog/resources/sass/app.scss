@@ -1,1 +1,114 @@
-//
+// Variabel Warna
+$primary-color: #ff6f61; // Merah Cerah
+$secondary-color: #6fa3ef; // Biru Cerah
+$text-color: #333;
+$background-color: #f0f8ff; // Latar belakang Cerah
+$font-stack: 'Arial', sans-serif;
+
+// Reset Dasar
+html, body, h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+  font-family: $font-stack;
+}
+
+// Gaya Body
+body {
+  background-color: $background-color;
+  color: $text-color;
+  line-height: 1.6;
+}
+
+// Gaya Header
+header {
+  background-color: $primary-color;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  animation: fadeIn 1s ease;
+
+  h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 1.2em;
+  }
+}
+
+// Gaya Konten
+.content {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+
+  h2 {
+    color: $secondary-color;
+    margin-bottom: 15px;
+    animation: slideIn 0.5s ease;
+  }
+
+  p {
+    margin-bottom: 15px;
+  }
+
+  a {
+    color: $primary-color;
+    text-decoration: none;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: darken($primary-color, 10%);
+      text-decoration: underline;
+    }
+  }
+}
+
+// Gaya Tombol
+.button {
+  background-color: $secondary-color;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
+  
+  &:hover {
+    background-color: darken($secondary-color, 10%);
+    transform: scale(1.05);
+  }
+}
+
+// Gaya Footer
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #343a40;
+  color: white;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+// Animasi
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
