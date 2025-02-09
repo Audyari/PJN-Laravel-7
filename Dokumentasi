@@ -16,4 +16,15 @@
     // untuk menghapus cache
     php artisan config:clear
 
-8. 
+8. // cara registrasi Service Provider
+    php artisan make:provider FooBarServiceProvider
+
+9. // untuk menghapus file compiled
+    php artisan clear-compiled
+
+10. // untuk melihat daftar route
+    php artisan Route:list
+
+11. // untuk memasukkan view ke cache
+    php artisan view:cache
+    php artisan view:clear

@@ -17,3 +17,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/test', function () {
+    return "hello test";
+});
+
+Route::redirect('/', '/test'); 
+
+Route::fallback(function () {
+    return "Halaman Tidak Ditemukan";
+});
+
+Route::get("/hello", function () {
+    return view("hello", [
+        "name" => "Audyari",
+        "age"=> "42",
+        "alamat"=> "Jl. Raya"
+    ]);
+});
+
+//Route::view("/hello", "hello", ["name" => "Audyari"]);
+
+Route::get("/hello-world", function () {
+    return view("hello.world", ['name'=> 'Audyari']);
+});
