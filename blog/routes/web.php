@@ -91,3 +91,9 @@ Route::post('/nasted', [InputController::class, 'helloFirstName'])->name('hello.
 Route::post('/greet', [InputController::class, 'helloInput'])->name('hello.greet');
 
 Route::post('/input/type', [InputController::class, 'inputType'])->name('hello.inputType');
+
+Route::post('/filter/only', [InputController::class, 'filterOnly'])->name('hello.filterOnly');
+
+Route::post('/filter/except', [InputController::class, 'filterExcept'])->name('hello.filterExcept');
+
+Route::post('/input/filter/merge', [InputController::class, 'filterMerge'])->name('hello.filterMerge');

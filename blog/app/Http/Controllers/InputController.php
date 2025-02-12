@@ -79,4 +79,35 @@ class InputController extends Controller
         ]);
     }
 
+    public function filterOnly(Request $request)
+    {
+        //$name = $request->only(['name.first', 'name.last']);
+        $name = $request->only(['name.first', 'name.last']);
+
+        return json_encode($name);
+    }
+
+    public function filterExcept(Request $request)
+
+    {
+        $user = $request->except(['admin']);
+        return json_encode($user);
+
+    }
+
+    public function filterMerge(Request $request)
+    {
+        $request->merge([
+            'admin' => true,
+            'name' => [
+                'first' => "Audyari", 
+                'last' => "Wiyono"  
+            ]
+        ]);
+    
+
+        $user = $request->input();
+        return json_encode($user);
+
+    }
 }
