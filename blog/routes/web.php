@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HelloController;
+use App\Http\Controllers\InputController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,13 +16,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/test', function () {
     return "hello test";
-});
+})->name("test");
 
 Route::redirect('/', '/test'); 
 
@@ -39,12 +43,49 @@ Route::get("/hello", function () {
 
 Route::get("/hello-world", function () {
     return view("hello.world", ['name'=> 'Audyari']);
+})->name("hello.world");
+
+Route::get('/profile/{id?}/', function (string $id = '0', string $age = '0') {
+    return view('profile', ['id' => $id, 'age' => $age]);
+})->where('id', '[0-9]+')->where('age', '[0-9]+')->name('profile.name');
+
+
+Route::get('/profile/{id?}/age/{age?}', function (string $id = '0', string $age = '0') {
+    return view('profile', ['id' => $id, 'age' => $age]);
+})->where('id', '[0-9]+')->where('age', '[0-9]+')->name('profile.name');
+
+
+Route::get('/conflik/{name}', function (String $name = "audyari" ) {
+    return view('conflik', ['name' => $name]);
 });
 
-Route::get('/profile/{name}', function ($name) {
-    return view('profile', ['name' => $name]);
+Route::get('/conflik/Asep', function () {
+    return "Asep";    
 });
 
-Route::get('/profile/{name}/age/{age}', function ($name, $age) {
-    return view('profile', ['name'=> $name,'age'=> $age]);
+Route::get('/NamedRoute', function () {
+    $link = route('test');
+    return "Link: $link";
 });
+
+Route::get('/NamedRouteA', function () {
+    return redirect()->route('test');
+});
+
+
+// penggunaan controlller
+Route::get('/controler/hello', [HelloController::class, 'Hello'])->name('hello.world');
+
+Route::get('/controler/helloService/{name}', [HelloController::class, 'helloService'])->name('hello.service');
+
+Route::get('/request',[HelloController::class, 'request'])->name('hello.request');
+
+Route::get('/input', [InputController::class, 'index'])->name('hello.index');
+
+Route::post('/input',[InputController::class, 'input'])->name('hello.input');
+
+Route::get('/nasted', [InputController::class, 'helloFirstName'])->name('hello.nasted');
+
+Route::post('/nasted', [InputController::class, 'helloFirstName'])->name('hello.nastedPost');
+
+Route::post('/greet', [InputController::class, 'helloInput'])->name('hello.greet');

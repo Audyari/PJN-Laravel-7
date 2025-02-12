@@ -7,7 +7,28 @@
     <title>Test Profile</title>
 </head>
 <body>
-    <h1>Profile {{ $name}}</h1>
-    <p>Umur Kamu : {{ $age ?? 'No Age' }}</p>
+    
+        <p>ID: {{ $id }}</p>
+        <p>Age: {{ $age }}</p>
+
+        @if($id == '0' && $age == '0')
+            <br>
+            <p>No profile information available.</p>
+        @else
+            <p>
+                @if($id != '0')
+                    <br>
+                    This is the profile for ID: {{ $id }}.
+                @endif
+
+                @if($age != '0')
+                    <br>
+                    This person's age is {{ $age }} years old.
+                @endif
+            </p>
+        @endif
+
+       
+   
 </body>
 </html>

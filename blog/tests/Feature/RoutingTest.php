@@ -41,6 +41,25 @@ class RoutingTest extends TestCase
         ->assertStatus(200)
         ->assertSeeText('Halaman Tidak Ditemukan');
     }
-  
+
+    // php artisan test tests/Feature/RoutingTest.php --filter testRouteParameter
+    public function testRouteParameter()
+    {
+        $this->get('/profile/1')
+        ->assertSeeText('Profile 1');
+
+      
+        $this->get('/profile/1/age/42')
+        ->assertSeeText('Profile 1, age 42');
+
+    }
+
+    // php artisan test tests/Feature/RoutingTest.php --filter testRouteParameterRegex
+    public function testRouteParameterRegex()
+    {
+        $this->get('/profile/Audyari/age/42')
+        ->assertSeeText('Profile Audyari, age 42');
+
+    }
 
 }

@@ -1,4 +1,11 @@
 1. composer create-project --prefer-dist laravel/laravel:^7.0 blog
+    
+    composer install
+    php artisan key:generate
+    composer dump-autoload
+    php artisan cache:clear
+    php artisan config:cache
+
 
 2. php artisan serve
 
@@ -36,4 +43,5 @@
     npm run dev
     npm run prod
 
-14. 
+14. // pembuatan controller
+    php artisan make:controller ContohController
