@@ -89,3 +89,5 @@ Route::get('/nasted', [InputController::class, 'helloFirstName'])->name('hello.n
 Route::post('/nasted', [InputController::class, 'helloFirstName'])->name('hello.nastedPost');
 
 Route::post('/greet', [InputController::class, 'helloInput'])->name('hello.greet');
+
+Route::post('/input/type', [InputController::class, 'inputType'])->name('hello.inputType');

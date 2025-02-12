@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Carbon\Carbon;
 
 class InputController extends Controller
 {
@@ -60,6 +61,22 @@ class InputController extends Controller
         return $names;
     }
 
-
+    public function inputType(Request $request)
+    {
+        
+        $name = $request->input('name');
+        $married = $request->boolean('marrige');
+        $birtDate = Carbon::createFromFormat('Y-m-d', $request->input('birtDate'));
+       
+       
+    
+        return json_encode([
+            'name' => $name,
+            'married' => $married,
+            'birtDate' => $birtDate ? $birtDate->toDateString() : null
+           
+           
+        ]);
+    }
 
 }
